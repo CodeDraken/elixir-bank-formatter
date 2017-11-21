@@ -7,13 +7,15 @@ defmodule Budget.Mixfile do
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
-      deps: deps()
+      deps: deps(),
+      default_task: "list_transactions"
     ]
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
+      applications: [:nimble_csv],
       extra_applications: [:logger]
     ]
   end
@@ -23,6 +25,7 @@ defmodule Budget.Mixfile do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
+      {:nimble_csv, "~> 0.3"}
     ]
   end
 end
